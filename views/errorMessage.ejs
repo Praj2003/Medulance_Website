@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<style>
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+  }
+  .card {
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .btn-custom {
+    background-color: #007bff;
+    color: white;
+  }
+  .btn-custom:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card text-center">
+        <div class="card-body">
+          <h3 class="card-title text-danger">Error</h3>
+          <p class="card-text">
+            You have entered the wrong password or email ID.
+          </p>
+          <a href="/login" class="btn btn-custom">Go to Login Page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

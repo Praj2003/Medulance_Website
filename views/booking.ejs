@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="container mt-4">
+    <h2>Medulance Ambulance Booking Details</h2>
+    <form action="/booking" method="POST">
+      <!-- Name -->
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Enter your name" name="client_name" required>
+      </div>
+      
+      <!-- Address -->
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Enter your address" name= "client_address" required>
+      </div>
+      
+      <!-- Gender -->
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" checked>
+          <label class="form-check-label" for="genderMale">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female">
+          <label class="form-check-label" for="genderFemale">Female</label>
+        </div>
+      </div>
+      
+      <!-- Pickup Location -->
+      <div class="form-group">
+        <label for="inputLocation">Pickup Location</label>
+        <input type="text" class="form-control" id="inputLocation" placeholder="Enter pickup location" name="client_location" required>
+      </div>
+      
+      <!-- Contact Number -->
+      <div class="form-group">
+        <label for="inputPhone">Contact Number</label>
+        <input type="tel" class="form-control" id="inputPhone" placeholder="Enter your phone number" name="client_number" required>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+<%- include('partials/footer') %>

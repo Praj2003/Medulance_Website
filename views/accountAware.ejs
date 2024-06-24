@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+    }
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-body {
+        text-align: center;
+    }
+    .btn-custom {
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+    }
+    .btn-custom:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">Account Already Exists</h3>
+            <p class="card-text">It looks like you already have an account with us. Please log in to continue.</p>
+            <a href="/login" class="btn btn-custom">Login</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
