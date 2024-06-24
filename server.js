@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
-const Strategy  =require("passport-local");
+const LocalStrategy  =require("passport-local").Strategy;
 const session = require("express-session");
 require('dotenv').config();
 
@@ -21,15 +21,11 @@ app.use(session({
   secret : process.env.SESSION_SECRET,
   resave : false,
   saveUninitialized : true,
-  cookie : {
-    maxAge : 100000
-  }
+  cookie : {maxAge : 100000}
 }))
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-const saltRounds = 8;
 
 
 const db = new pg.Client({
@@ -42,43 +38,39 @@ const db = new pg.Client({
 
 db.connect();
 
-app.get("/login",async(req,res) =>{
+app.get("/login",(req,res) =>{
   res.render("login.ejs");
 })
 
-app.get("/accountExists",async(req,res) =>{
+app.get("/accountExists",(req,res) =>{
   res.render("accountAware.ejs");
 })
 
-app.get("/login2",async(req,res) =>{
-  res.render("login2.ejs");
-})
-
-app.get("/register",async(req,res) =>{
+app.get("/register",(req,res) =>{
   res.render("register.ejs");
 })
 
-app.get("/",async(req,res) =>{
+app.get("/",(req,res) =>{
   res.render("home.ejs")
 })
 
-app.get("/secrets",async(req,res) =>{
+app.get("/secrets",(req,res) =>{
   res.render("secrets.ejs")
 })
 
-app.get("/booking",authCheck,async(req,res) =>{
+app.get("/booking",authCheck,(req,res) =>{
   res.render("booking.ejs");
 })
 
-app.get("/emergency_services",async(req,res) =>{
+app.get("/emergency_services",authCheck,(req,res) =>{
   res.render("emergencyAmbulance.ejs");
 })
 
-app.get("/about",(async(req,res) =>{
+app.get("/about",(req,res) =>{
   res.render("about.ejs");
-}))
+});
 
-app.get("/errorMessage",async (req,res) =>{
+app.get("/errorMessage",(req,res) =>{
   res.render("errorMessage.ejs");
 })
 
@@ -152,33 +144,54 @@ app.post("/booking",authCheck,async(req,res) =>{
   
 })
 
-passport.use("local",new Strategy(async function verify(email,password,cb){
-  try{
-   const input = await db.query("SELECT * FROM users WHERE email = $1",[email]);
+passport.use("local", new LocalStrategy(async function verify(email, password, cb) {
+  try {
+    console.log("Verifying user with email:", email);
 
-   if(input.rows.length > 0){
-    const user = input.rows[0];
-    const storedHashedPassword = user.password;
+    const input = await db.query("SELECT * FROM users WHERE email = $1", [email]);
 
-    bcrypt.compare(password,storedHashedPassword,(err,valid) =>{
-      if(err){
-        console.log("Invalid Password",err);
-        return cb(err);
-      }else{
-        if(valid){
-          cb(null,user);
-        }else{
-          cb(null,false);
+    if (input.rows.length > 0) {
+      const user = input.rows[0];
+      const storedHashedPassword = user.password;
+
+      bcrypt.compare(password, storedHashedPassword, (err, valid) => {
+        if (err) {
+          console.error("Error comparing passwords:", err);
+          return cb(err);
+        } else {
+          if (valid) {
+            console.log("Passwords match, user authenticated:", user);
+            cb(null, user); // Passwords match, authenticate user
+          } else {
+            console.log("Passwords do not match");
+            cb(null, false); // Passwords do not match, do not authenticate user
+          }
         }
-      }
-    })
-  }else{
-     cb("User not Found");
-   }
-  }catch(err){
-    console.log(err);
+      });
+    } else {
+      console.log("User not found with email:", email);
+      cb("User not Found"); // User with given email not found
+    }
+  } catch (err) {
+    console.error("Error finding user:", err);
+    cb(err); // Handle unexpected errors
   }
-}))
+}));
+
+
+
+passport.serializeUser((user, cb) => {
+  cb(null, user.id); // Serialize user by user ID
+});
+
+passport.deserializeUser(async (id, cb) => {
+  try {
+    const user = await db.query("SELECT * FROM users WHERE id = $1", [id]);
+    cb(null, user.rows[0]); // Deserialize user by fetching from database
+  } catch (err) {
+    cb(err);
+  }
+});
 
 async function authCheck(req,res,next){
   if(req.isAuthenticated()){
@@ -186,14 +199,6 @@ async function authCheck(req,res,next){
   }
   res.redirect("/login")
 }
-
-passport.serializeUser((user,cb) =>{
-   cb(null,user);
-})
-
-passport.deserializeUser((user,cb) =>{
-   cb(null,user);
-})
 
 app.listen(serverConfig.PORT,() =>{
     console.log(`Server is succcessfully running on the port ${serverConfig.PORT}`);
