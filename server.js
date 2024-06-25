@@ -75,6 +75,14 @@ app.get("/errorMessage", (req, res) => {
   res.render("errorMessage.ejs");
 });
 
+app.get("/FAQ",(req,res) =>{
+  res.render("faq.ejs")
+})
+
+app.get("/contact",(req,res) =>{
+  res.render("contact.ejs")
+})
+
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
 
