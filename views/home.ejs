@@ -1,125 +1,245 @@
-<%- include('partials/header') %>
-<%- include('partials/nav') %>
-
+<%- include('partials/header') %> <%- include('partials/nav') %>
 
 <div class="container">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+  <div
+    class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+  >
     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Medulance HealthCare</h1>
-      <p class="lead">Medulance Healthcare provides rapid, reliable, and high-quality ambulance services across major cities in India. Our fleet is equipped with advanced life support systems and our highly trained medical personnel ensure swift, safe, and effective care during emergencies. Leveraging cutting-edge technology, we streamline emergency response, ensuring timely medical attention and enhancing patient outcomes. Choose Medulance for compassionate and efficient emergency medical services you can trust.</p>
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis">
+        Medulance HealthCare
+      </h1>
+      <p class="lead">
+        Medulance Healthcare provides rapid, reliable, and high-quality
+        ambulance services across major cities in India. Our fleet is equipped
+        with advanced life support systems and our highly trained medical
+        personnel ensure swift, safe, and effective care during emergencies.
+        Leveraging cutting-edge technology, we streamline emergency response,
+        ensuring timely medical attention and enhancing patient outcomes. Choose
+        Medulance for compassionate and efficient emergency medical services you
+        can trust.
+      </p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-        <a type="button" href="/register" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Register</a>
-        <a type="button" href="/login" class="btn btn-outline-secondary btn-lg px-4">Login</a>
+        <a
+          type="button"
+          href="/register"
+          class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+          >Register</a
+        >
+        <a
+          type="button"
+          href="/login"
+          class="btn btn-outline-secondary btn-lg px-4"
+          >Login</a
+        >
       </div>
     </div>
-    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg" style="position: relative; height: 300px; transform: translate(-10px, -10px);">
-      <img src="/images/MedulanceLogo.jpeg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 0.75rem;">
+    <div
+      class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg"
+      style="
+        position: relative;
+        height: 300px;
+        transform: translate(-10px, -10px);
+      "
+    >
+      <img
+        src="/images/MedulanceLogo.jpeg"
+        alt=""
+        style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 0.75rem;
+        "
+      />
     </div>
   </div>
-  
-  
-  
 
-  <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Our Key Services</h2>
+  <hr class="featurette-divider" />
+  <div class="row featurette align-items-center">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">
+        Ravjot Singh Arora 
+        <span class="text-body-secondary"></span>
+      </h2>
+      <p class="lead">
+        Co-Founder at Medulance
+      </p>
+    </div>
+    <div class="col-md-5">
+      <img src="/images/RAVJOT.jpg" alt="Ravjot Singh Arora" class="featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <hr class="featurette-divider" />
+  <div class="row featurette align-items-center">
+    <div class="col-md-7">
+      <h2 class="featurette-heading fw-normal lh-1">
+        Pranav Bajaj
+        <span class="text-body-secondary"></span>
+      </h2>
+      <p class="lead">
+        Co-Founder at Medulance 
+      </p>
+    </div>
+    <div class="col-md-5">
+      <img src="/images/PRANAV.jpg" alt="Ravjot Singh Arora" class="featurette-image img-fluid mx-auto" width="500" height="500">
+    </div>
+  </div>
+
+  <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Key Roles</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-          <svg class="bi" width="1em" height="1em"><path d="/images/heart.svg"/>
+      <div class="col d-flex align-items-start">
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#toggles2"></use>
+          </svg>
         </div>
-        <h3 class="fs-2 text-body-emphasis">Emergency Ambulance Services</h3>
-        <p>We operate a fleet of ambulances equipped with advanced life support systems, ensuring rapid response and efficient medical care during emergencies.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Emergency Medical Response</h3>
+          <p>
+            We provide rapid response and emergency medical services, aiming to
+            stabilize and transport patients swiftly to appropriate medical
+            facilities.
+          </p>
+          <a href="#" class="btn btn-primary"> Primary button </a>
+        </div>
       </div>
-
-      <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="/heart.svg"></use></svg>
+      <div class="col d-flex align-items-start">
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#cpu-fill"></use>
+          </svg>
         </div>
-        <h3 class="fs-2 text-body-emphasis">Telemedicine</h3>
-        <p>Our telemedicine platform provides 24/7 access to medical consultations, making healthcare more accessible and convenient for patients.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Emergency Ambulance Services</h3>
+          <p>
+            Ambulances equipped with medical tools and trained staff ensure patients are transported safely and promptly to healthcare facilities.
+          </p>
+          <a href="#" class="btn btn-primary"> Primary button </a>
+        </div>
       </div>
-      <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="/images/heart.svg#icon-heart"></use></svg>
+      <div class="col d-flex align-items-start">
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#tools"></use>
+          </svg>
         </div>
-        <h3 class="fs-2 text-body-emphasis">Medical Event Coverage</h3>
-        <p>We offer medical services for events, ensuring on-site medical preparedness and safety for participants.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
+        <div>
+          <h3 class="fs-2 text-body-emphasis">Telemedicine Support</h3>
+          <p>
+            We offer remote medical advice and consultation to assist patients
+            before or during transportation, ensuring they receive prompt and
+            appropriate care.
+          </p>
+          <a href="#" class="btn btn-primary"> Primary button </a>
+        </div>
       </div>
     </div>
   </div>
-
 
   <div class="container px-4 py-5" id="hanging-icons">
     <h2 class="pb-2 border-bottom">Comprehensive Healthcare Solutions</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#toggles2"></use>
+          </svg>
         </div>
         <div>
           <h3 class="fs-2 text-body-emphasis">Home Healthcare Services</h3>
-          <p>We provide a range of medical services at home, including nursing care, physiotherapy, and diagnostic services, ensuring patients receive care in the comfort of their homes.
-
+          <p>
+            We provide home-based medical services, including nursing care,
+            physiotherapy, and diagnostics, ensuring comfort and convenience for
+            patients.
           </p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+          <a href="#" class="btn btn-primary"> Primary button </a>
         </div>
       </div>
       <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#cpu-fill"></use>
+          </svg>
         </div>
         <div>
           <h3 class="fs-2 text-body-emphasis">Training and Education</h3>
-          <p>We offer training programs for paramedics and first responders, enhancing the skills and preparedness of healthcare professionals.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+          <p>
+            We offer training programs for paramedics and first responders,
+            enhancing the skills and preparedness of healthcare professionals.
+          </p>
+          <a href="#" class="btn btn-primary"> Primary button </a>
         </div>
       </div>
       <div class="col d-flex align-items-start">
-        <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+        <div
+          class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3"
+        >
+          <svg class="bi" width="1em" height="1em">
+            <use xlink:href="#tools"></use>
+          </svg>
         </div>
         <div>
           <h3 class="fs-2 text-body-emphasis">Patient Transportation</h3>
-          <p>We provide non-emergency medical transportation services, ensuring safe and comfortable transit for patients requiring regular medical visits.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+          <p>
+            We provide non-emergency medical transportation services, ensuring
+            safe and comfortable transit for patients requiring regular medical
+            visits.
+          </p>
+          <a href="#" class="btn btn-primary"> Primary button </a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="b-example-divider"></div>
-  
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+
+  <footer
+    class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+  >
     <p class="col-md-4 mb-0 text-body-secondary">© 2024 Company, Inc</p>
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <a
+      href="/"
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+    >
+      <svg class="bi me-2" width="40" height="32">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About Us</a></li>
-      <li class="nav-item"><a href="/register" class="nav-link px-2 text-body-secondary">Register</a></li>
-      <li class="nav-item"><a href="/FAQ" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="/contact" class="nav-link px-2 text-body-secondary">Contact Us</a></li>
+      <li class="nav-item">
+        <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="nav-link px-2 text-body-secondary">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a href="/register" class="nav-link px-2 text-body-secondary"
+          >Register</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="/FAQ" class="nav-link px-2 text-body-secondary">FAQs</a>
+      </li>
+      <li class="nav-item">
+        <a href="/contact" class="nav-link px-2 text-body-secondary"
+          >Contact Us</a
+        >
+      </li>
     </ul>
   </footer>
 </div>
