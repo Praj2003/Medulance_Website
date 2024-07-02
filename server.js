@@ -7,6 +7,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
+const { name } = require("ejs");
 require("dotenv").config();
 
 const app = express();
@@ -22,7 +23,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 100000 },
+    
   })
 );
 
@@ -79,6 +80,10 @@ app.get("/FAQ",(req,res) =>{
   res.render("faq.ejs")
 })
 
+app.get("/contactSuccess",(req,res) =>{
+  res.render("contactSuccess.ejs");
+})
+
 app.get("/contact",(req,res) =>{
   res.render("contact.ejs")
 })
@@ -125,6 +130,22 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/contact", async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try {
+    const input = await db.query("INSERT INTO contact(name,email,message) VALUES ($1, $2, $3)", [name, email, message]);
+    console.log(input);
+    res.redirect("/contactSuccess");
+  } catch (err) {
+    console.error("Error while saving feedback: ", err);
+    res.status(500).send({
+      message: "There is some internal error while saving your feedback"
+    });
+  }
+});
+
+
 app.post(
   "/login",
   passport.authenticate("local", {
@@ -165,6 +186,39 @@ app.post("/booking", authCheck, async (req, res) => {
     });
   }
 });
+
+app.post("/emergency_services",async (req,res) =>{
+   const patient = req.body.patientName;
+   const contact = req.body.contactNumber;
+   const response = req.body.requestTime;
+   const location = req.body.location;
+   const condition = req.body.patientCondition;
+
+   try{
+     const input = await db.query("SELECT * FROM emergency_ambulance_requests WHERE contact_number = $1",[contact]);
+
+     if(input.rows.length > 0){
+       res.status(400).send({
+        message : "Your response has already been recieved by us check for the status"
+       })
+     }else{
+      let insert = await db.query("INSERT INTO emergency_ambulance_requests(patient_name,contact_number,request_time,location,condition) VALUES($1,$2,$3,$4,$5)",[patient,contact,response,location,condition]);
+
+      console.log(insert);
+
+      const answer = await db.query("SELECT request_id FROM emergency_ambulance_requests WHERE contact_number = $1",[contact]);
+      let id = answer.rows[0].request_id
+      res.render("emergencyConfirmation.ejs",{
+        requestId : id
+      })
+
+     }
+
+
+   }catch(err){
+     console.log(err);
+   }
+})
 
 passport.use(new LocalStrategy({
   usernameField: 'email',

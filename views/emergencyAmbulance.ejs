@@ -4,29 +4,29 @@
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <div class="text-center mb-2">
-        <img src="/images/Medulance2.jpg" alt="Medulance Logo" class="img-fluid mb-3" style="width: 100%;max-height: 150px"/>
+        <img src="/images/Medulance2.jpg" alt="Medulance Logo" class="img-fluid mb-3" style="width: 100%; max-height: 150px"/>
         <h4 class="mb-0">Emergency Ambulance Service Request</h4>
       </div>
-      <form id="emergencyForm" class="mb-4">
+      <form id="emergencyForm" class="mb-4" action="/emergency_services" method="post">
         <div class="form-group">
-          <label for="ambulanceId">Ambulance ID</label>
-          <input type="number" class="form-control" id="ambulanceId" placeholder="Enter Ambulance ID" required/>
+          <label for="patientName">Patient Name</label>
+          <input type="text" class="form-control" id="patientName" name="patientName" placeholder="Enter Patient Name" required/>
         </div>
         <div class="form-group">
-          <label for="patientId">Patient ID</label>
-          <input type="number" class="form-control" id="patientId" placeholder="Enter Patient ID" required/>
+          <label for="contactNumber">Contact Number</label>
+          <input type="tel" class="form-control" id="contactNumber" name="contactNumber" placeholder="Enter Contact Number" required/>
         </div>
         <div class="form-group">
-          <label for="responseTime">Response Time</label>
-          <input type="datetime-local" class="form-control" id="responseTime" required/>
+          <label for="requestTime">Response Time</label>
+          <input type="datetime-local" class="form-control" id="requestTime" name="requestTime" required/>
         </div>
         <div class="form-group">
           <label for="location">Location</label>
-          <input type="text" class="form-control" id="location" placeholder="Enter Location" required/>
+          <input type="text" class="form-control" id="location" name="location" placeholder="Enter Location" required/>
         </div>
         <div class="form-group">
-          <label for="condition">Condition</label>
-          <textarea class="form-control" id="condition" rows="3" placeholder="Describe the patient's condition" required></textarea>
+          <label for="patientCondition">Condition</label>
+          <textarea class="form-control" id="patientCondition" name="patientCondition" rows="3" placeholder="Describe the patient's condition" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit Request</button>
       </form>
@@ -35,3 +35,4 @@
   <%- include('partials/footerContent') %>
 </div>
 <%- include('partials/footer') %>
+

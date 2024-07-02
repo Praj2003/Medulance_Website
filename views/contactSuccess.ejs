@@ -1,0 +1,49 @@
+<%- include('partials/header') %> <%- include('partials/nav') %>
+
+<style>
+  .thank-you-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+  }
+  .thank-you-message {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .thank-you-message h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .thank-you-message p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .thank-you-message a {
+    font-size: 1.25rem;
+    color: white;
+    text-decoration: none;
+  }
+  .thank-you-message a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="container">
+  <div class="thank-you-container">
+    <div class="thank-you-message">
+      <h1>Thank You!</h1>
+      <p>Thank you for sharing your feedback with us.</p>
+      <a href="/" class="btn btn-primary">Go to Home Page</a>
+    </div>
+  </div>
+
+  <%- include('partials/footerContent') %>
+</div>
+
+<%- include('partials/footer') %>
