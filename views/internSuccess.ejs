@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="text-center mb-3">
+        <img src="/images/Medulance2.jpg" alt="Medulance Logo" class="img-fluid mb-3" style="width: 100%; max-height: 150px"/>
+        <h4 class="mb-0">Internship Application Submitted</h4>
+      </div>
+      <div class="alert alert-success" role="alert">
+        Your internship application has been submitted successfully!
+        <br>
+        Your Submission ID is: <strong><%= requestId %></strong>
+      </div>
+      <p class="text-center">
+        <a href="/" class="btn btn-primary">Return Home</a>
+        <a href="/checkStatus" class="btn btn-secondary">Check Status</a>
+      </p>
+    </div>
+  </div>
+  <%- include('partials/footerContent') %>
+</div>
+
+<%- include('partials/footer') %>

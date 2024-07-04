@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="text-center mb-2">
+        <h4 class="mb-0">Internship Application Form</h4>
+      </div>
+      <form id="internshipApplicationForm" action="/internship" method="POST" class="mb-5">
+        <div class="form-group ">
+          <label for="student_name">Full Name</label>
+          <input type="text" class="form-control" id="student_name" name="studentName" placeholder="Enter Full Name" required/>
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" name="age" placeholder="Enter Age" required/>
+        </div>
+        <div class="form-group">
+          <label for="contact_number">Contact Number</label>
+          <input type="tel" class="form-control" id="contact_number" name="contactNumber" placeholder="Enter Contact Number" required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email Address" required/>
+        </div>
+        <div class="form-group">
+          <label for="course">Course</label>
+          <input type="text" class="form-control" id="course" name="course" placeholder="Enter Course" required/>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+      </form>
+    </div>
+  </div>
+  <%- include('partials/footerContent') %>
+</div>
+
+<%- include('partials/footer') %>

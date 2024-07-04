@@ -1,0 +1,98 @@
+<%- include('partials/header') %> <%- include('partials/nav') %>
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="text-center mb-2">
+        <h4 class="mb-0">Telemedicine Support Request</h4>
+      </div>
+      <form id="telemedicineForm" action="/tele" method="POST" class="mb-3">
+        <div class="form-group">
+          <label for="patientName">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="patientName"
+            name="patient_name"
+            placeholder="Enter Full Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            placeholder="Enter Age"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select class="form-control" id="gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contactNumber">Contact Number</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="contactNumber"
+            name="contact_number"
+            placeholder="Enter Contact Number"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="symptoms">Current Symptoms</label>
+          <textarea
+            class="form-control"
+            id="symptoms"
+            name="symptoms"
+            rows="3"
+            placeholder="Describe current symptoms"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="consultationMethod">Preferred Consultation Method</label>
+          <select
+            class="form-control"
+            id="consultationMethod"
+            name="consultation_method"
+            required
+          >
+            <option value="">Select Consultation Method</option>
+            <option value="phone">Phone Call</option>
+            <option value="video">Video Call</option>
+            <option value="chat">Chat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="consultationPurpose">Consultation Purpose</label>
+          <select
+            class="form-control"
+            id="consultationPurpose"
+            name="consultation_purpose"
+            required
+          >
+            <option value="">Select Consultation Purpose</option>
+            <option value="initial">Initial Assessment</option>
+            <option value="follow-up">Follow-up</option>
+            <option value="emergency">Emergency Advice</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Submit Request
+        </button>
+      </form>
+    </div>
+  </div>
+  <%- include('partials/footerContent') %>
+</div>
+ <%- include('partials/footer') %>

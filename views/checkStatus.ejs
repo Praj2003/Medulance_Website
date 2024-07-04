@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="text-center mb-2">
+        <img src="/images/Medulance2.jpg" alt="Medulance Logo" class="img-fluid mb-3" style="width: 100%; max-height: 150px"/>
+        <h4 class="mb-0">Check Request Status</h4>
+      </div>
+      <form id="statusForm" class="mb-5" action="/checkStatus" method="POST">
+        <div class="form-group">
+          <label for="applicationNumber">Application Number</label>
+          <input type="text" class="form-control" id="applicationNumber" name="applicationNumber" placeholder="Enter your Application Number" required/>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Check Status</button>
+      </form>
+      <% if (locals.statusMessage) { %>
+        <div class="alert alert-info" role="alert">
+          <strong><%= statusMessage %></strong>
+        </div>
+      <% } %>
+    </div>
+  </div>
+  <%- include('partials/footerContent') %>
+</div>
+<%- include('partials/footer') %>
